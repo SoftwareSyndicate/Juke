@@ -2,21 +2,21 @@ import api from './api';
 import * as types from './mutation-types';
 
 
-export const watchProducts =  ({ commit }) => {
-  api.watch("products", results => {
-    let products = [];
+export const watchBoxes =  ({ commit }) => {
+  api.watch("boxes", results => {
+    let boxes = [];
     for(let key in results){
       results[key].created_at = new Date (results[key].created_at);
-      products.push(results[key]);
+      boxes.push(results[key]);
     }
-    commit(types.RECEIVE_PRODUCTS, {products});
+    commit(types.RECEIVE_BOXES, {boxes});
   });
 };
 
 
-export const saveProduct =  ({commit, state}) => {
+export const saveBox =  ({commit, state}) => {
   // Save product state in case API Request Fails
-  const saved_product = state.product
+  const saved_box = state.product
   commit("APPLY_PRODUCT_UPDATES", state.productCopy)
   let product = state.product
   if(!product.id){

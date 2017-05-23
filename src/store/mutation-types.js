@@ -1,13 +1,12 @@
 export const UPDATE_BREADCRUMBS = 'UPDATE_BREADCRUMBS'
 export const UPDATE_SIDENAV = 'UPDATE_SIDENAV'
 
-//Products
-export const SET_PRODUCTS = 'PRODUCTS_SET'
-export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
-export const ADD_PRODUCT = 'ADD_PRODUCT'
-export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
-export const SAVE_PRODUCT = 'SAVE_PRODUCT'
-export const COPY_PRODUCT = 'COPY_PRODUCT'
+//Boxes
+export const SET_BOXES = 'SET_BOXES'
+export const RECEIVE_BOXES = 'RECEIVE_BOXES'
+export const ADD_BOX = 'ADD_BOX'
+export const UPDATE_BOX = 'UPDATE_BOX'
+export const COPY_BOX = 'COPY_BOX'
 
 // Filters
 export const SET_FILTER = 'SET_FILTER'

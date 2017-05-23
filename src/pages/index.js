@@ -1,3 +1,3 @@
-export {default as HubPage} from './HubPage.vue'
-export {default as HubsPage} from './HubsPage.vue'
+export {default as BoxPage} from './BoxPage.vue'
+export {default as BoxesPage} from './BoxesPage.vue'
 

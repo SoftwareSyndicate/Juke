@@ -3,17 +3,17 @@ export default [
     name: "",
     sub_items: [
       {
-        name: "Products",
+        name: "Boxes",
         route: {
-          name: 'products',
+          name: 'boxes',
         }
       },
-      {
-        name: "Company",
-        route: {
-          name: 'company',
-        }
-      },
+      // {
+      //   name: "Users",
+      //   route: {
+      //     name: 'users',
+      //   }
+      // },
     ]
   }
 ]

@@ -2,10 +2,10 @@ import Firebase from 'firebase'
 import 'firebase/database'
 
 const config = {
-  apiKey: "AIzaSyAgxDkwNB0TSm83GbB6FGKpIsxs0WRQzxI",
-  authDomain: "flower-c6ff3.firebaseapp.com",
-  databaseURL: 'https://flower-c6ff3.firebaseio.com/',
-  storageBucket: "gs://flower-c6ff3.appspot.com/"
+  apiKey: "AIzaSyDSdshXu8tQGDlcUD3IGwKO7pH8mYn7KYI",
+  authDomain: "juke-13562.firebaseapp.com",
+  databaseURL: 'https://juke-13562.firebaseio.com/',
+  storageBucket: "gs://juke-13562.appspot.com/"
 }
 const version = '/v0'
 
