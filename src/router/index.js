@@ -13,12 +13,12 @@ export default new Router({
     },
     {
       path: '/boxes',
-      name: 'Boxes-Page',
+      name: 'boxes',
       component: Pages.BoxesPage
     },
     {
       path: '/boxes/:id',
-      name: 'Box-Page',
+      name: 'box',
       component: Pages.BoxPage
     }
   ]
