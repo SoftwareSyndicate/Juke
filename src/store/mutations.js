@@ -5,11 +5,11 @@ export default {
   [types.UPDATE_BREADCRUMBS] (state, breadcrumbs) {
     state.breadcrumbs = breadcrumbs
   },
-  [types.RECEIVE_PRODUCTS] (state, {products}) {
-    state.products = products
+  [types.RECEIVE_BOXES] (state, {boxes}) {
+    state.boxes = boxes
   },
-  [types.ADD_PRODUCT] (state, {product}) {
-    state.products.push(product)
+  [types.ADD_BOX] (state, {box}) {
+    state.boxes.push(box)
   },
 
   ["PRODUCT_UPDATE_SUCCESS"] (state) {

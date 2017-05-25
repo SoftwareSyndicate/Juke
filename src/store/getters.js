@@ -32,7 +32,7 @@ export const crumbs = state => {
 // Nav
 export const nav_items = state => state.nav_items;
 
-// Products
+// Boxes
 export const product = state => {
   if(state.route.params && state.route.params.id != 'new'){
     let product = state.products.find((product)=>{
@@ -49,15 +49,11 @@ export const product = state => {
   }
 }
 
-export const productUpdates = state => state.productUpdates
-export const productCopy = state => state.productCopy
-export const products = state => state.products
-export const productFilters = state => state.productFilters
+export const boxes = state => state.boxes
+export const boxFilters = state => state.boxFilters
 
-export const filteredProducts = state => {
+export const filteredBoxes = state => {
   // TODO actually filter
-  return state.products;
+  return state.boxes;
 }
 
-// Org
-export const org = state => state.org;

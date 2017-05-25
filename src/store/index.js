@@ -10,7 +10,35 @@ Vue.use(Vuex);
 const state = {
   crumbs: [],
   nav_items: nav_items,
-  boxes: [],
+  boxes: [
+    {
+      name: "Party Box",
+      currentlyPlaying: {
+        name: "Bangerang",
+        artist: "Skrillex"
+      },
+      public: true,
+      created_at: new Date()
+    },
+    {
+      name: "Chill out",
+      currentlyPlaying: {
+        name: "Hi Hater",
+        artist: "T fucking I"
+      },
+      public: false,
+      created_at: new Date()
+    },
+    {
+      name: "Dope beats",
+      currentlyPlaying: {
+        name: "Work",
+        artist: "Gang Star"
+      },
+      public: true,
+      created_at: new Date()
+    },
+  ],
   emptyBox: {
     name: "",
     description: "",

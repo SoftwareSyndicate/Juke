@@ -27,6 +27,7 @@ div#mobile-nav
   .center
     .page-name
       font-size 2em
+      color #616b70
 
   .right
     margin-right 1em
