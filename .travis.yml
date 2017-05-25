@@ -5,14 +5,14 @@ script:
   - npm run build
 deploy:
   - provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
+    skip_cleanup: true
+    token: $FIREBASE_TOKEN
     project: "juke-13562"
     on:
       branch: master
   - provider: firebase
-    token:
-      secure: $FIREBASE_TOKEN
+    skip_cleanup: true
+    token: $FIREBASE_TOKEN
     project: "juke-staging"
     on:
       branch: staging
