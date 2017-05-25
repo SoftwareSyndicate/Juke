@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "juke-13562"
+    "default": "juke-13562",
+    "staging": "juke-staging"
   }
 }

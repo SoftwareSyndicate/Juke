@@ -23,7 +23,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
-    }
+    },
+    // symlinks: false,
+    // this is to help npm linked packages use project node_modules first
+    modules: ["node_modules", resolve("node_modules")],
   },
   module: {
     rules: [
@@ -35,7 +38,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [
+          resolve('src'),
+          resolve('test'),
+          // make sure that
+          /\/syndicate-ui/,
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
