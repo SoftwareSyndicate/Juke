@@ -6,6 +6,7 @@ import * as Pages from '../pages'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
