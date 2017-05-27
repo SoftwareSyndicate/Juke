@@ -44,3 +44,9 @@ export const uploadFile = ({ commit }, {file}) => {
     return error;
   })
 };
+
+// Left Nav
+export const toggleLeftNav = ({ commit, state }) => {
+  commit(types.TOGGLE_LEFT_NAV);
+};
+

@@ -32,6 +32,10 @@ export const crumbs = state => {
 // Nav
 export const nav_items = state => state.nav_items;
 
+// Left Nav
+export const leftNav = state => state.leftNav;
+
+
 // Boxes
 export const product = state => {
   if(state.route.params && state.route.params.id != 'new'){

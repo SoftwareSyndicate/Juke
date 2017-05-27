@@ -10,3 +10,9 @@ export const COPY_BOX = 'COPY_BOX'
 
 // Filters
 export const SET_FILTER = 'SET_FILTER'
+
+
+// Left Nav
+export const TOGGLE_LEFT_NAV = 'TOGGLE_LEFT_NAV'
+
+
