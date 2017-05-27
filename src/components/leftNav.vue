@@ -2,7 +2,7 @@
 div#left-nav
   transition(name="transform")
     div.container(v-if="leftNav.open")
-      p left nav
+
   
 </template>
 
