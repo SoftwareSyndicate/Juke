@@ -13,6 +13,8 @@ div#app
 </template>
 
 <style lang="stylus">
+
+@import "../node_modules/syndicate-ui/src/style/main.styl"
 #app
   font-family: 'Montserrat', sans-serif;
 

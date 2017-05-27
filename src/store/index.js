@@ -105,7 +105,7 @@ const state = {
     name: "",
     description: "",
   },
-  currentBox: null,
+  currentBox: {},
   filteredBoxes: [],
   boxFilters: {},
   leftNav: {

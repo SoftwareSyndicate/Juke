@@ -37,14 +37,14 @@ export const leftNav = state => state.leftNav;
 
 
 // Boxes
-export const product = state => {
+export const currentBox = state => {
   if(state.route.params && state.route.params.id != 'new'){
-    let product = state.products.find((product)=>{
-      return product.id === state.route.params.id
+    let box = state.boxes.find((box)=>{
+      return box.id === state.route.params.id
     })
 
-    if(product){
-      return product
+    if(box){
+      return box
     } else {
       return {}
     }

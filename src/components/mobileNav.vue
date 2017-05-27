@@ -6,10 +6,11 @@ div#mobile-nav
         span.line &nbsp
         span.line &nbsp
         span.line &nbsp
-     
     
   div.center
-    h2.page-name Boxes
+    h2.page-name(v-if="currentBox.name") {{currentBox.name}}
+    h2.page-name(v-else) Boxes
+    h2.page-name(v-else) Boxes
 
   div.right
     div.filter-icon-container
@@ -111,6 +112,7 @@ export default {
   computed: mapGetters ({
     nav_items: 'nav_items',
     leftNav: 'leftNav',
+    currentBox: 'currentBox'
   }),
   methods: {
      ...mapActions({
