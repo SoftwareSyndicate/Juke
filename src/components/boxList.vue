@@ -14,8 +14,9 @@ transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:bef
 
   .box-list-item-container
     flex-basis 100%
-    padding-bottom 1em
+    margin-bottom 1em
 
+    
 </style>
 
 <script>
@@ -37,21 +38,21 @@ export default {
       el.style.height = 0
     },
     enter: function (el, done) {
-      var delay = el.dataset.index * 150
+      var delay = el.dataset.index * 100
       setTimeout(function () {
         Velocity(
           el,
-          { opacity: 1, height: '4em' },
+          { opacity: 1, height: '4.2em'},
           { complete: done }
         )
       }, delay)
     },
     leave: function (el, done) {
-      var delay = el.dataset.index * 150
+      var delay = el.dataset.index * 100
       setTimeout(function () {
         Velocity(
           el,
-          { opacity: 0, height: 0 },
+          { opacity: 0, height: 0},
           { complete: done }
         )
       }, delay)

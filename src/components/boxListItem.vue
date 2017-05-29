@@ -4,7 +4,6 @@ div.box-list-item
     div.currently-playing-image-container
       img(:src="box.currentlyPlaying.image")
 
-
   div.right
     div.row-flex-wrap
       div.row-flex
@@ -15,14 +14,16 @@ div.box-list-item
 </template>
 
 <style lang="stylus">
+
+  
 .box-list-item
   display flex
   flex-basis 100%
   padding .5em
   border 1px solid rgba(0,0,0, .2)
-  border-radius 2px
-  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-
+  border-radius 4px
+  box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.15)
+  
   .left
     display flex
     margin-right 1em

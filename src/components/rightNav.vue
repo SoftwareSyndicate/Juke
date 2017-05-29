@@ -24,7 +24,7 @@ div#right-nav
     transform translateX(75vw) translateY(-100vh)
   
   .container
-    background-color rgba(0, 0, 0, .7)
+    background-color rgba(0, 0, 0, .8)
     width 75vw
     height 100vh
     
@@ -51,7 +51,6 @@ export default {
   }),
   methods: {
     onNameChange(e){
-      console.log(e.target.value)
       this.updateBoxFilter({name: e.target.value})
     },
     ...mapActions({

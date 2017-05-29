@@ -28,6 +28,7 @@ div#mobile-nav
   height 60px
   align-items center
   justify-content space-between
+  background-color white
 
   .left
     height 100%
