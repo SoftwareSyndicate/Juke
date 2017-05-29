@@ -1,6 +1,6 @@
 <template lang="pug">
-div.box-list
-  div.box-list-item-container(v-for="box in boxes")
+transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:before-enter="beforeEnter", v-on:enter="enter",  v-on:leave="leave").box-list
+  div.box-list-item-container(v-for="(box, index) in boxes", v-bind:key="box.id", v-bind:data-index="index")
     router-link(:to="{name: 'box', params: {id: box.id}}")
       box-list-item(:box="box")
   
@@ -29,6 +29,32 @@ export default {
     boxes: {
       type: Array,
       default: () => [] 
+    }
+  },
+  methods: {
+    beforeEnter: function (el) {
+      el.style.opacity = 0
+      el.style.height = 0
+    },
+    enter: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 1, height: '4em' },
+          { complete: done }
+        )
+      }, delay)
+    },
+    leave: function (el, done) {
+      var delay = el.dataset.index * 150
+      setTimeout(function () {
+        Velocity(
+          el,
+          { opacity: 0, height: 0 },
+          { complete: done }
+        )
+      }, delay)
     }
   }
 }

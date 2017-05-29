@@ -107,9 +107,14 @@ const state = {
   },
   currentBox: {},
   filteredBoxes: [],
-  boxFilters: {},
+  boxFilters: {
+    name: ""
+  },
   leftNav: {
-    open: true
+    open: false
+  },
+  rightNav: {
+    open: false
   }
 };
 

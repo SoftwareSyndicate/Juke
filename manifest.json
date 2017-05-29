@@ -1,0 +1,14 @@
+{
+  "name": "Juke",
+  "short_name": "Juke",
+  "start_url": "/boxes",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Democratic Playlists.",
+  "icons": [
+    {
+      "src": "static/juke.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }],
+}

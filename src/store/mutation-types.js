@@ -8,11 +8,14 @@ export const ADD_BOX = 'ADD_BOX'
 export const UPDATE_BOX = 'UPDATE_BOX'
 export const COPY_BOX = 'COPY_BOX'
 
-// Filters
-export const SET_FILTER = 'SET_FILTER'
+// Box Filter
+export const SET_BOX_FILTER = 'SET_BOX_FILTER'
 
 
 // Left Nav
 export const TOGGLE_LEFT_NAV = 'TOGGLE_LEFT_NAV'
+
+// Right Nav
+export const TOGGLE_RIGHT_NAV = 'TOGGLE_RIGHT_NAV'
 
 

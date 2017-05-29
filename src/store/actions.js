@@ -16,24 +16,24 @@ export const watchBoxes =  ({ commit }) => {
 
 export const saveBox =  ({commit, state}) => {
   // Save product state in case API Request Fails
-  const saved_box = state.product
-  commit("APPLY_PRODUCT_UPDATES", state.productCopy)
-  let product = state.product
-  if(!product.id){
-    return api.addItem('products', product).then(results => {
-      // commit(types.ADD_PRODUCT, results);
-    });
-  } else {
-    return api.updateItem(product.id, 'products', product).then(results =>{
-      commit("PRODUCT_UPDATE_SUCCESS")
-    }, error => {
-      commit("PRODUCT_UPDATE_FAIL", saved_product)
-    })
-  }
+  // const saved_box = state.product
+  // commit("APPLY_PRODUCT_UPDATES", state.productCopy)
+  // let product = state.product
+  // if(!product.id){
+  //   return api.addItem('products', product).then(results => {
+  //     // commit(types.ADD_PRODUCT, results);
+  //   });
+  // } else {
+  //   return api.updateItem(product.id, 'products', product).then(results =>{
+  //     commit("PRODUCT_UPDATE_SUCCESS")
+  //   }, error => {
+  //     commit("PRODUCT_UPDATE_FAIL", saved_product)
+  //   })
+  // }
 };
 
-export const setFilter = ({ commit }, filter) => {
-  commit(types.SET_FILTER, filter);
+export const updateBoxFilter = ({ commit }, filter) => {
+  commit(types.SET_BOX_FILTER, {filter});
 };
 
 
@@ -48,5 +48,10 @@ export const uploadFile = ({ commit }, {file}) => {
 // Left Nav
 export const toggleLeftNav = ({ commit, state }) => {
   commit(types.TOGGLE_LEFT_NAV);
+};
+
+// Right Nav
+export const toggleRightNav = ({ commit, state }) => {
+  commit(types.TOGGLE_RIGHT_NAV);
 };
 

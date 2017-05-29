@@ -13,8 +13,8 @@ div#mobile-nav
     h2.page-name(v-else) Boxes
 
   div.right
-    div.filter-icon-container
-      div.filter-icon
+    div.filter-icon-container(@click="toggleRightNav()")
+      div.filter-icon(:class="{'open': rightNav.open}")
         span.line &nbsp
         span.line &nbsp
         span.line &nbsp
@@ -75,6 +75,7 @@ div#mobile-nav
       flex-basis 100%
       align-items center
       justify-content center
+      z-index 5
       
       .filter-icon
         display flex
@@ -83,7 +84,12 @@ div#mobile-nav
         align-items center
         height .8em
         width 1em
-        
+
+        &.open
+          .line
+            transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
+            background-color white
+              
         .line
           border-radius 2px
           height 2px
@@ -112,11 +118,13 @@ export default {
   computed: mapGetters ({
     nav_items: 'nav_items',
     leftNav: 'leftNav',
+    rightNav: 'rightNav',
     currentBox: 'currentBox'
   }),
   methods: {
      ...mapActions({
-       toggleLeftNav: 'toggleLeftNav' 
+       toggleLeftNav: 'toggleLeftNav',
+       toggleRightNav: 'toggleRightNav' 
     })
   }
 }

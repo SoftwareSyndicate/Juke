@@ -35,6 +35,8 @@ export const nav_items = state => state.nav_items;
 // Left Nav
 export const leftNav = state => state.leftNav;
 
+// Right Nav
+export const rightNav = state => state.rightNav;
 
 // Boxes
 export const currentBox = state => {
@@ -57,7 +59,11 @@ export const boxes = state => state.boxes
 export const boxFilters = state => state.boxFilters
 
 export const filteredBoxes = state => {
+  return state.boxes.filter(function (box) {
+    return box.name.toLowerCase().indexOf(state.boxFilters.name.toLowerCase()) !== -1
+  })
+  
   // TODO actually filter
-  return state.boxes;
+  //return state.boxes;
 }
 

@@ -1,6 +1,6 @@
 <template lang="pug">
 div#boxes-page.page
-  box-list(:boxes="boxes")
+  box-list(:boxes="filteredBoxes")
 
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   name: 'boxes-page',
   computed: mapGetters ({
-    boxes: 'boxes',
+    filteredBoxes: 'filteredBoxes',
   }),
 
 }

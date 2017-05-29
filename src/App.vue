@@ -3,7 +3,7 @@ div#app
   div.nav-container
     left-nav
     mobile-nav
-      
+    right-nav
 
   div.content-container
     div.view-container
@@ -41,12 +41,14 @@ div#app
 import { mapGetters } from 'vuex'
 import mobileNav from './components/mobileNav'
 import leftNav from './components/leftNav'
+import rightNav from './components/rightNav'
 
 export default {
   name: 'app',
   components: {
     mobileNav,
-    leftNav
+    leftNav,
+    rightNav
   },
   computed: mapGetters ({
     crumbs: 'crumbs',
