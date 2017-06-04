@@ -15,8 +15,8 @@ export default {
     console.log(filter);
     state.boxFilters = filter
   },
-  [types.TOGGLE_LEFT_NAV] (state) {
-    state.leftNav.open =  !state.leftNav.open
+  [types.UPDATE_LEFT_NAV] (state, leftNav) {
+    state.leftNav =  Object.assign(state.leftNav, leftNav)
   },
   [types.TOGGLE_RIGHT_NAV] (state) {
     state.rightNav.open =  !state.rightNav.open

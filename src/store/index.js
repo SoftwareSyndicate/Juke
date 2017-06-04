@@ -111,7 +111,8 @@ const state = {
     name: ""
   },
   leftNav: {
-    open: false
+    open: false,
+    currentForm: null
   },
   rightNav: {
     open: false

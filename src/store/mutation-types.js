@@ -13,7 +13,7 @@ export const SET_BOX_FILTER = 'SET_BOX_FILTER'
 
 
 // Left Nav
-export const TOGGLE_LEFT_NAV = 'TOGGLE_LEFT_NAV'
+export const UPDATE_LEFT_NAV = 'UPDATE_LEFT_NAV'
 
 // Right Nav
 export const TOGGLE_RIGHT_NAV = 'TOGGLE_RIGHT_NAV'

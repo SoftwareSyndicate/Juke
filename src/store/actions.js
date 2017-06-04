@@ -46,9 +46,10 @@ export const uploadFile = ({ commit }, {file}) => {
 };
 
 // Left Nav
-export const toggleLeftNav = ({ commit, state }) => {
-  commit(types.TOGGLE_LEFT_NAV);
+export const updateLeftNav = ({ commit, state }, leftNav) => {
+  commit(types.UPDATE_LEFT_NAV, leftNav);
 };
+
 
 // Right Nav
 export const toggleRightNav = ({ commit, state }) => {

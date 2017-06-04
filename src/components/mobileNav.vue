@@ -1,7 +1,7 @@
 <template lang="pug">
 div#mobile-nav
   div.left
-    div.menu-icon-container(@click="toggleLeftNav()")
+    div.menu-icon-container(@click="updateLeftNav({'open': !leftNav.open})")
       div.menu-icon(:class="{'open': leftNav.open}")
         span.line &nbsp
         span.line &nbsp
@@ -124,7 +124,7 @@ export default {
   }),
   methods: {
      ...mapActions({
-       toggleLeftNav: 'toggleLeftNav',
+       updateLeftNav: 'updateLeftNav',
        toggleRightNav: 'toggleRightNav' 
     })
   }
