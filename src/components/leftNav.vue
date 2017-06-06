@@ -2,29 +2,29 @@
 div#left-nav
   transition(name="transform")
     div.container.row-flex-wrap(v-if="leftNav.open")
-      div
-        div.back-button-container
-          span.line &nbsp
-          span.line &nbsp
-          span.line &nbsp
+      div.row
+        div.back-button-container(@click="back()")
+          span <-
 
-        div.actions.row-flex-wrap
-          div.row-flex-100
-            s-button.row-flex-100(title="ADD A BOX", :onclick="addBoxForm")
-          div.row-flex-100
-            s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
-            s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
+        transition(name="fade-opacity", mode="in")
+          div.actions.row-flex-wrap(v-if="!leftNav.currentForm")
+            div.row-flex-100
+              s-button.row-flex-100(title="ADD A BOX", :onclick="addBoxForm")
+            div.row-flex-100
+              s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
+              s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
 
-        div.form-container.row-flex-wrap-100
-          div.box-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'boxForm'")
-            h4.action-name.row-flex-100 New Box
-            box-form
-          div.sign-in-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signInForm'")
-            h4.action-name.row-flex-wrap-100 Sign In
-            sign-in-form
-          div.sign-up-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signUpForm'")
-            h4.action-name.row-flex-wrap-100 Sign Up
-            sign-up-form
+        transition(name="fade-opacity", mode="in")
+          div.form-container.row-flex-wrap-100(v-if="!!leftNav.currentForm")
+            div.box-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'boxForm'")
+              h4.action-name.row-flex-100 New Box
+              box-form
+            div.sign-in-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signInForm'")
+              h4.action-name.row-flex-wrap-100 Sign In
+              sign-in-form
+            div.sign-up-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signUpForm'")
+              h4.action-name.row-flex-wrap-100 Sign Up
+              sign-up-form
         
   
 </template>
@@ -41,34 +41,23 @@ div#left-nav
     transition all .3s cubic-bezier(0, 1.0, 1.0, 1.0)
   
   .transform-enter, .transform-leave-to
-    transform translateX(-85vw) translateY(-100vh)
+    transform translateX(-100vw) translateY(-100vh)
   
   .container
-    background-color rgba(25, 129,  236, .95)
-    width 85vw
+    // background-color rgba(25, 129,  236, .95)
+    background-color rgba(255, 255,  255, .95)
+    width 100vw
     height 100vh
 
     .back-button-container
       position absolute
+      display flex
+      justify-content center
+      align-items center
       top 0
       right 0
       height 60px
       width 60px
-      background-color green
-
-      .line
-        border-radius 2px
-        height 2px
-        background-color #616b70
-
-        &:nth-child(1) 
-          width 16px
-
-        &:nth-child(2) 
-          width 12px
-    
-        &:nth-child(3) 
-          width: 8px
     
     .actions
       height 18%
@@ -79,13 +68,14 @@ div#left-nav
         margin .5em
     
     .form-container
+      margin-top 2em
       padding 1.5em
         
       .action-name
         font-size 1.8em
         font-weight 300
-        color rgba(255, 255, 255, .9)
         justify-content center
+        margin-bottom 1em
       
 </style>
 
@@ -109,14 +99,17 @@ export default {
     leftNav: 'leftNav',
   }),
   methods: {
+    back(){
+      this.updateLeftNav({currentForm: null})
+    },
     addBoxForm(){
-      this.updateLeftNav({currentForm: 'boxForm'});
+      this.updateLeftNav({currentForm: 'boxForm'})
     },
     addSignUpForm(){
-      this.updateLeftNav({currentForm: 'signUpForm'});
+      this.updateLeftNav({currentForm: 'signUpForm'})
     },
     addSignInForm(){
-      this.updateLeftNav({currentForm: 'signInForm'});
+      this.updateLeftNav({currentForm: 'signInForm'})
     },
     ...mapMutations({
       'updateLeftNav': 'UPDATE_LEFT_NAV'

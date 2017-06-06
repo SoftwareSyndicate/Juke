@@ -17,6 +17,7 @@ div#app
 @import "../node_modules/syndicate-ui/src/style/main.styl"
 #app
   font-family: 'Montserrat', sans-serif;
+  color #616b70;
 
   .nav-container
     display flex
@@ -27,12 +28,11 @@ div#app
   .content-container
     padding-top 60px
 
-  .view-container  
-    .fade-enter-active, .fade-leave-active
-      transition all .2s ease
+  .fade-enter-active, .fade-leave-active
+    transition all .2s ease
 
-    .fade-enter, .fade-leave-active
-      opacity 0
+  .fade-enter, .fade-leave-active
+    opacity 0
 
 
 </style>

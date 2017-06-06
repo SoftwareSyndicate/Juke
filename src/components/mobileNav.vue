@@ -53,7 +53,7 @@ div#mobile-nav
         &.open
           .line
             transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
-            background-color white
+            // background-color white
                 
         .line
           border-radius 1px
