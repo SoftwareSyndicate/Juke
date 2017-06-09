@@ -1,13 +1,12 @@
 <template lang="pug">
 div#boxes-page.page
   box-list(:boxes="filteredBoxes")
-
 </template>
 
 <style lang="stylus">
 #boxes-page
   padding 16px
-  
+
   h1
     font-size 4em
 
@@ -16,7 +15,7 @@ div#boxes-page.page
 <script>
 import { mapGetters } from 'vuex'
 import boxList from '../components/boxList'
-  
+
 export default {
   components: {
     boxList
@@ -25,7 +24,9 @@ export default {
   computed: mapGetters ({
     filteredBoxes: 'filteredBoxes',
   }),
+  mounted(){
+    this.$store.dispatch('watchBoxes')
+  }
 
 }
 </script>
-

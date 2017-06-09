@@ -1,9 +1,8 @@
 <template lang="pug">
 transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:before-enter="beforeEnter", v-on:enter="enter",  v-on:leave="leave").box-list
-  div.box-list-item-container(v-for="(box, index) in boxes", v-bind:key="box.id", v-bind:data-index="index")
-    router-link(:to="{name: 'box', params: {id: box.id}}")
+  div.box-list-item-container(v-for="(box, index) in boxes", v-bind:key="box._id", v-bind:data-index="index")
+    router-link(:to="{name: 'box', params: {id: box._id}}")
       box-list-item(:box="box")
-  
 </template>
 
 <style lang="stylus">
@@ -16,11 +15,11 @@ transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:bef
     flex-basis 100%
     margin-bottom 1em
 
-    
+
 </style>
 
 <script>
-import boxListItem from './boxListItem'  
+import boxListItem from './boxListItem'
 export default {
   name: 'box-list',
   components: {
@@ -29,7 +28,7 @@ export default {
   props: {
     boxes: {
       type: Array,
-      default: () => [] 
+      default: () => []
     }
   },
   methods: {
@@ -60,4 +59,3 @@ export default {
   }
 }
 </script>
-

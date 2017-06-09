@@ -7,80 +7,81 @@ const config = {
   databaseURL: 'https://juke-13562.firebaseio.com/',
   storageBucket: "gs://juke-13562.appspot.com/"
 }
-const version = '/v0'
+// const version = '/v0'
 
 Firebase.initializeApp(config)
 
-const api = Firebase.database().ref(version)
-const storage = Firebase.storage().ref(version)
+const ref = Firebase.database().ref()
+const storage = Firebase.storage().ref()
 
-// ADD
-api.addItem = function(type, data){
-  return new Promise((resolve, reject) => {
-    let key = api.child(type).push().key;
+export default new class API {
+  constructor() {
 
-    let now = new Date();
-    data.created_at = now;
-    data.updated_at = now;
-    data.id = key;
+  }
 
-    var updates = {};
-    updates[`${type}/${key}`] = data;
-    api.update(updates).then(results => {
-      resolve(data);
-    }, error => {
-      reject(error);
+  get ref(){
+    return ref
+  }
+  get storage(){
+    return storage
+  }
+
+  addItem(type, data){
+    return new Promise((resolve, reject) => {
+      let key = this.ref.child(type).push().key
+
+      let now = new Date()
+      data.created_at = now
+      data.updated_at = now
+      data.id = key
+
+      var updates = {}
+      updates[`${type}/${key}`] = data
+      this.ref.update(updates).then(results => {
+        resolve(data)
+      }, error => {
+        reject(error)
+      })
     })
-  })
-}
+  }
 
-// Update
-api.updateItem = function(id, type, data){
-  // console.log("data: ", data);
-  // console.log("args: ", arguments);
-  return new Promise((resolve, reject) => {
-    let key = id;
+  updateItem(key, type, data){
+    // console.log("data: ", data)
+    // console.log("args: ", arguments)
+    data.updated_at = new Date()
 
-    let now = new Date();
-    data.updated_at = now;
+    var updates = {}
+    updates[`${type}/${key}`] = data
+    return this.ref.update(updates)
+  }
 
-    var updates = {};
-    updates[`${type}/${key}`] = data;
-    return api.update(updates).then(results => {
-      resolve(results);
-    }, error => {
-      reject(error);
-    })
-  })
-}
+  updatePath(path, data){
+    var updates = {}
+    updates[`${path}`] = data
+    return this.update(updates)
+  }
 
+  update(updates){
+    return this.ref.update(updates)
+  }
 
-// WATCH
-api.watch = function(type, cb) {
-  let first = true
-  const ref = api.child(type);
-  const handler = snapshot => {
-    cb(snapshot.val())
-    // if (first) {
-    //   first = false
-    // } else {
+  watch(type, handler) {
+    let first = true
+    const ref = this.ref.child(type)
+    // const handler = snapshot => {
     //   cb(snapshot.val())
     // }
+    let cb = ref.on('value', handler)
+    return () => {
+      ref.off('value', cb)
+    }
   }
-  ref.on('value', handler)
-  return () => {
-    ref.off('value', handler)
+
+  uploadFile(file){
+    return storage.child('images/' + file.name).put(file).then(results => {
+      return results
+    }, error => {
+      return error
+    })
   }
 }
-
-api.uploadFile = function(file){
-  return storage.child('images/' + file.name).put(file).then(results => {
-    return results;
-  }, error => {
-    return error;
-  });
-}
-
-
-
-export default api

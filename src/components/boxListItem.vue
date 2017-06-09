@@ -2,20 +2,19 @@
 div.box-list-item
   div.left
     div.currently-playing-image-container
-      img(:src="box.currentlyPlaying.image")
+      img(:src="box.currently_playing.image")
 
   div.right
     div.row-flex-wrap
       div.row-flex
         p.name {{box.name}}
-      div.row-flex(v-if="box.currentlyPlaying")
-        p.currently-playing {{box.currentlyPlaying.name}} - {{box.currentlyPlaying.artist}}
-
+      div.row-flex(v-if="box.currently_playing")
+        p.currently-playing {{box.currently_playing.name}} - {{box.currently_playing.artist}}
 </template>
 
 <style lang="stylus">
 
-  
+
 .box-list-item
   display flex
   flex-basis 100%
@@ -23,15 +22,15 @@ div.box-list-item
   border 1px solid rgba(0,0,0, .2)
   border-radius 4px
   box-shadow 0 1px 2px 0 rgba(0, 0, 0, 0.15)
-  
+
   .left
     display flex
     margin-right 1em
-    
+
     .currently-playing-image-container
       height 3.5em
       width 3.5em
-      
+
       img
         height 100%
         border-radius 10%
@@ -44,7 +43,7 @@ div.box-list-item
 
     .currently-playing
       font-size .7em
-    
+
 
 </style>
 
@@ -55,11 +54,10 @@ export default {
     box: {
       type: Object,
       default: () => {
-        
-      } 
+
+      }
     }
   }
 
 }
 </script>
-
