@@ -3,6 +3,8 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+import SC from 'soundcloud'
+
 import SyndicateUI from 'syndicate-ui'
 
 import { sync } from 'vuex-router-sync'
@@ -15,6 +17,12 @@ sync(store, router)
 
 //Install SyndicateUI
 Vue.use(SyndicateUI)
+
+// initialize soundcloud sdk
+SC.initialize({
+  client_id: '1b2adbaac77a0cf4178cd3598b9859a6',
+  // redirect_uri: 'http://example.com/callback'
+});
 
 new Vue({
   el: '#app',

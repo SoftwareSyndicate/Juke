@@ -26,7 +26,7 @@ module.exports = {
     },
     // symlinks: false,
     // this is to help npm linked packages use project node_modules first
-    modules: ["node_modules", resolve("node_modules")],
+    modules: [resolve("node_modules"), "node_modules"],
   },
   module: {
     rules: [
