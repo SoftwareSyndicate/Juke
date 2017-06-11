@@ -5,15 +5,14 @@ export default {
   [types.UPDATE_BREADCRUMBS] (state, breadcrumbs) {
     state.breadcrumbs = breadcrumbs
   },
-  [types.RECEIVE_BOXES] (state, {boxes}) {
-    state.boxes = boxes
+  [types.RECEIVE_STATIONS] (state, {stations}) {
+    state.stations = stations
   },
-  [types.ADD_BOX] (state, {box}) {
-    state.boxes.push(box)
+  [types.ADD_STATION] (state, {station}) {
+    state.stations.push(station)
   },
-  [types.SET_BOX_FILTER] (state, {filter}) {
-    console.log(filter);
-    state.boxFilters = filter
+  [types.SET_STATION_FILTER] (state, {filter}) {
+    state.stationFilters = filter
   },
   [types.UPDATE_LEFT_NAV] (state, leftNav) {
     state.leftNav =  Object.assign(state.leftNav, leftNav)

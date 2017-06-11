@@ -38,15 +38,15 @@ export const leftNav = state => state.leftNav;
 // Right Nav
 export const rightNav = state => state.rightNav;
 
-// Boxes
-export const currentBox = state => {
+// Stations
+export const currentStation = state => {
   if(state.route.params && state.route.params.id != 'new'){
-    let box = state.boxes.find((box)=>{
-      return box.id === state.route.params.id
+    let station = state.stations.find((station)=>{
+      return station.id === state.route.params.id
     })
 
-    if(box){
-      return box
+    if(station){
+      return station
     } else {
       return {}
     }
@@ -55,12 +55,12 @@ export const currentBox = state => {
   }
 }
 
-export const boxes = state => state.boxes
-export const boxFilters = state => state.boxFilters
+export const stations = state => state.stations
+export const stationFilters = state => state.stationilters
 
-export const filteredBoxes = state => {
-  return state.boxes.filter(function (box) {
-    return box.name.toLowerCase().indexOf(state.boxFilters.name.toLowerCase()) !== -1
+export const filteredStations = state => {
+  return state.stations.filter(function (station) {
+    return station.name.toLowerCase().indexOf(state.stationFilters.name.toLowerCase()) !== -1
   })
   
   // TODO actually filter

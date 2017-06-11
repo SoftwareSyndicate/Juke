@@ -2,20 +2,20 @@ import api from './api'
 import * as types from './mutation-types'
 
 
-export const watchBoxes =  ({ commit }) => {
-  api.watch("boxes", snap => {
-    let boxes = snap.val()
-    boxes = Object.keys(boxes).reduce((_boxes, _id)=>{
-      return _boxes.concat([Object.assign({_id},boxes[_id])])
+export const watchStations =  ({ commit }) => {
+  api.watch("stations", snap => {
+    let stations = snap.val()
+    stations = Object.keys(stations).reduce((_stations, _id)=>{
+      return _stations.concat([Object.assign({_id},stations[_id])])
     },[])
-    commit(types.RECEIVE_BOXES, {boxes})
+    commit(types.RECEIVE_STATIONS, {stations})
   })
 }
 
 
-export const saveBox =  ({commit, state}) => {
+export const saveStation =  ({commit, state}) => {
   // Save product state in case API Request Fails
-  // const saved_box = state.product
+  // const saved_station = state.product
   // commit("APPLY_PRODUCT_UPDATES", state.productCopy)
   // let product = state.product
   // if(!product.id){
@@ -31,8 +31,8 @@ export const saveBox =  ({commit, state}) => {
   // }
 }
 
-export const updateBoxFilter = ({ commit }, filter) => {
-  commit(types.SET_BOX_FILTER, {filter})
+export const updateStationFilter = ({ commit }, filter) => {
+  commit(types.SET_STATION_FILTER, {filter})
 }
 
 

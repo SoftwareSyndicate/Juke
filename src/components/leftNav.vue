@@ -9,16 +9,16 @@ div#left-nav
         transition(name="fade-opacity", mode="out-in")
           div.actions.row-flex-wrap(v-if="!leftNav.currentForm")
             div.row-flex-100
-              s-button.row-flex-100(title="ADD A BOX", :onclick="addBoxForm")
+              s-button.row-flex-100(title="ADD A STATION", :onclick="addStationForm")
             div.row-flex-100
               s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
               s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
 
         transition(name="fade-opacity", mode="out-in")
           div.form-container.row-flex-wrap-100(v-if="!!leftNav.currentForm")
-            div.box-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'boxForm'")
-              h4.action-name.row-flex-100 New Box
-              box-form
+            div.station-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'stationForm'")
+              h4.action-name.row-flex-100 New Station
+              station-form
             div.sign-in-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signInForm'")
               h4.action-name.row-flex-wrap-100 Sign In
               sign-in-form
@@ -86,14 +86,14 @@ import { mapActions } from 'vuex'
 
 import signUpForm from './signUpForm'
 import signInForm from './signInForm'
-import boxForm from './boxForm'
+import stationForm from './stationForm'
 
 export default {
   name: 'left-nav',
   components: {
     signUpForm,
     signInForm,
-    boxForm,
+    stationForm,
   },
   computed: mapGetters ({
     leftNav: 'leftNav',
@@ -102,8 +102,8 @@ export default {
     back(){
       this.updateLeftNav({currentForm: null})
     },
-    addBoxForm(){
-      this.updateLeftNav({currentForm: 'boxForm'})
+    addStationForm(){
+      this.updateLeftNav({currentForm: 'stationForm'})
     },
     addSignUpForm(){
       this.updateLeftNav({currentForm: 'signUpForm'})

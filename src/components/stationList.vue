@@ -1,17 +1,17 @@
 <template lang="pug">
-transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:before-enter="beforeEnter", v-on:enter="enter",  v-on:leave="leave").box-list
-  div.box-list-item-container(v-for="(box, index) in boxes", v-bind:key="box._id", v-bind:data-index="index")
-    router-link(:to="{name: 'box', params: {id: box._id}}")
-      box-list-item(:box="box")
+transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:before-enter="beforeEnter", v-on:enter="enter",  v-on:leave="leave").station-list
+  div.station-list-item-container(v-for="(station, index) in stations", v-bind:key="station._id", v-bind:data-index="index")
+    router-link(:to="{name: 'station', params: {id: station._id}}")
+      station-list-item(:station="station")
 </template>
 
 <style lang="stylus">
-.box-list
+.station-list
   display flex
   flex-basis 100%
   flex-wrap wrap
 
-  .box-list-item-container
+  .station-list-item-container
     flex-basis 100%
     margin-bottom 1em
 
@@ -19,14 +19,14 @@ transition-group(name="staggered-fade", tag="div",  v-bind:css="false", v-on:bef
 </style>
 
 <script>
-import boxListItem from './boxListItem'
+import stationListItem from './stationListItem'
 export default {
-  name: 'box-list',
+  name: 'station-list',
   components: {
-    boxListItem
+    stationListItem
   },
   props: {
-    boxes: {
+    stations: {
       type: Array,
       default: () => []
     }

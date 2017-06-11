@@ -10,17 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: "/boxes"
+      redirect: "/stations"
     },
     {
-      path: '/boxes',
-      name: 'boxes',
-      component: Pages.BoxesPage
+      path: '/stations',
+      name: 'stations',
+      component: Pages.StationsPage
     },
     {
-      path: '/boxes/:id',
-      name: 'box',
-      component: Pages.BoxPage
+      path: '/stations/:id',
+      name: 'station',
+      component: Pages.StationPage
     }
   ]
 })

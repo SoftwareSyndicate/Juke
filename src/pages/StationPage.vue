@@ -1,11 +1,11 @@
 <template lang="pug">
-div#box-page.page
-  h1 box-page
+div#station-page.page
+  h1 station-page
 
 </template>
 
 <style lang="stylus">
-#box-page
+#station-page
   h1
     font-size 4em
 
@@ -13,7 +13,7 @@ div#box-page.page
 
 <script>
 export default {
-  name: 'box-page'
+  name: 'station-page'
 
   
 }

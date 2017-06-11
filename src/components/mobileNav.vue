@@ -8,9 +8,9 @@ div#mobile-nav
         span.line &nbsp
     
   div.center
-    h2.page-name(v-if="currentBox.name") {{currentBox.name}}
-    h2.page-name(v-else) Boxes
-    h2.page-name(v-else) Boxes
+    h2.page-name(v-if="currentStation.name") {{currentStation.name}}
+    h2.page-name(v-else) Stations
+    h2.page-name(v-else) Stations
 
   div.right
     div.filter-icon-container(@click="toggleRightNav()")
@@ -120,7 +120,7 @@ export default {
     nav_items: 'nav_items',
     leftNav: 'leftNav',
     rightNav: 'rightNav',
-    currentBox: 'currentBox'
+    currentStation: 'currentStation'
   }),
   methods: {
      ...mapActions({

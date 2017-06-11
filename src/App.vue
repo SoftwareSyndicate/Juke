@@ -15,8 +15,11 @@ div#app
 <style lang="stylus">
 
 @import "../node_modules/syndicate-ui/src/style/main.styl"
+@import "./style/main.styl"
+
+
 #app
-  font-family: 'Montserrat', sans-serif;
+
   color #616b70;
 
   .nav-container

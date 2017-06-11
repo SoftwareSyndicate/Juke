@@ -1,15 +1,15 @@
 export const UPDATE_BREADCRUMBS = 'UPDATE_BREADCRUMBS'
 export const UPDATE_SIDENAV = 'UPDATE_SIDENAV'
 
-//Boxes
-export const SET_BOXES = 'SET_BOXES'
-export const RECEIVE_BOXES = 'RECEIVE_BOXES'
-export const ADD_BOX = 'ADD_BOX'
-export const UPDATE_BOX = 'UPDATE_BOX'
-export const COPY_BOX = 'COPY_BOX'
+//Stations
+export const SET_STATIONS = 'SET_STATIONS'
+export const RECEIVE_STATIONS = 'RECEIVE_STATIONS'
+export const ADD_STATION = 'ADD_STATION'
+export const UPDATE_STATION = 'UPDATE_STATION'
+export const COPY_STATION = 'COPY_STATION'
 
-// Box Filter
-export const SET_BOX_FILTER = 'SET_BOX_FILTER'
+// Station Filter
+export const SET_STATION_FILTER = 'SET_STATION_FILTER'
 
 
 // Left Nav
