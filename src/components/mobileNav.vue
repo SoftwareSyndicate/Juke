@@ -41,7 +41,6 @@ div#mobile-nav
       flex-basis 100%
       align-items center
       justify-content center
-      z-index 5
       
       .menu-icon
         display flex
@@ -76,7 +75,6 @@ div#mobile-nav
       flex-basis 100%
       align-items center
       justify-content center
-      z-index 5
       
       .filter-icon
         display flex
