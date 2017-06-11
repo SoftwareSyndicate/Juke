@@ -6,7 +6,7 @@ div#left-nav
         div.back-button-container(@click="back()")
           span <-
 
-        transition(name="fade-opacity", mode="in")
+        transition(name="fade-opacity", mode="out-in")
           div.actions.row-flex-wrap(v-if="!leftNav.currentForm")
             div.row-flex-100
               s-button.row-flex-100(title="ADD A BOX", :onclick="addBoxForm")
@@ -14,7 +14,7 @@ div#left-nav
               s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
               s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
 
-        transition(name="fade-opacity", mode="in")
+        transition(name="fade-opacity", mode="out-in")
           div.form-container.row-flex-wrap-100(v-if="!!leftNav.currentForm")
             div.box-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'boxForm'")
               h4.action-name.row-flex-100 New Box
