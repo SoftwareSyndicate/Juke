@@ -22,7 +22,8 @@ const state = {
   },
   leftNav: {
     open: false,
-    currentForm: null
+    currentForm: null,
+    currentAction: null
   },
   rightNav: {
     open: false

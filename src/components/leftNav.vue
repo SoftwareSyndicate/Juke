@@ -1,35 +1,47 @@
 <template lang="pug">
 div#left-nav
   transition(name="transform")
-  div.container.row(v-if="leftNav.open")
-    div.row.top-bar
-      div
-        div.menu-icon(:class="{'open': leftNav.open}")
+    div.container.row(v-if="leftNav.open")
+      div.row.top-bar
+        div.close-icon-container(:class="{'open': leftNav.open}", @click="updateLeftNav({'open': !leftNav.open})")
           span.close.hairline
-          
-      div
+
+        div.current-action-container
+          h2 {{leftNav.currentAction}}
+
         div.back-button-container(@click="back()")
           span <-
 
-    transition(name="fade-opacity", mode="out-in")
-      div.actions.row-flex-wrap(v-if="!leftNav.currentForm")
-        div.row-flex-100
-          s-button.row-flex-100(title="ADD A STATION", :onclick="addStationForm")
-        div.row-flex-100
-          s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
-          s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
+      div.navigation.row-flex-wrap(v-if="!leftNav.currentForm")
+        div.route-list.row-flex-wrap
+          div.route.row-flex-wrap-100
+            div.row-flex-100
+              p stations
+            div.row-flex-100
+              p new
 
-    transition(name="fade-opacity", mode="out-in")
-      div.form-container.row-flex-wrap-100(v-if="!!leftNav.currentForm")
-        div.station-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'stationForm'")
-          h4.action-name.row-flex-100 New Station
-          station-form
-        div.sign-in-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signInForm'")
-          h4.action-name.row-flex-wrap-100 Sign In
-          sign-in-form
-        div.sign-up-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signUpForm'")
-          h4.action-name.row-flex-wrap-100 Sign Up
-          sign-up-form
+
+
+          div.route.row-flex-100
+            p users
+
+          div.route.row-flex-100
+            p analytics
+
+        // div.row-flex-100
+        //   s-button.row-flex-100(title="ADD A STATION", :onclick="addStationForm")
+        // div.row-flex-100
+        //   s-button.row-flex-100(title="SIGN IN", :onclick="addSignInForm")
+        //   s-button.row-flex-100(title="SIGN UP", :onclick="addSignUpForm")
+
+      transition(name="fade-opacity", mode="out-in")
+        div.form-container.row-flex-wrap-100(v-if="!!leftNav.currentForm")
+          div.station-form-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'stationForm'")
+            station-form
+          div.sign-in-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signInForm'")
+            sign-in-form
+          div.sign-up-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signUpForm'")
+            sign-up-form
 
           
   
@@ -63,38 +75,27 @@ div#left-nav
     .close
       position relative
       display inline-block
-      width 50px
-      height 50px
+      width 25px
+      height 25px
       overflow hidden
       
-      &:hover 
-        &::before, &::after 
-        background white
-
-        &::before, &::after 
-          content ''
-          position absolute
-          height 2px
-          width 100%
-          top 50%
-          left 0
-          margin-top -1px
-          background #000
-
-       &::before 
-         @include transform(rotate(45deg))
+      &::before, &::after 
+        content ''
+        position absolute
+        height 1px
+        width 100%
+        top 50%
+        left 0
+        margin-top -1px
+        background #616b70
        
-       &::after 
-         @include transform(rotate(-45deg))
+      &::before 
+        transform rotate(45deg)
        
-       &.big 
-         @include transform(scale(3))
+      &::after
+        transform rotate(-45deg)
        
-       &.hairline 
-         &::before, &::after 
-           height 1px
-
-    .back-button-container
+    .close-icon-container
       display flex
       justify-content center
       align-items center
@@ -102,17 +103,31 @@ div#left-nav
       right 0
       height 60px
       width 60px
-    
-    .actions
-      height 18%
-      padding 1em
-      margin-top 3em
 
-      .s-button
-        margin .5em
+    .current-action-container
+      margin-left auto
+
+    .back-button-container
+      display flex
+      justify-content center
+      align-items center
+      margin-left auto
+      top 0
+      right 0
+      height 60px
+      width 60px
     
+    .navigation
+      padding 1em
+
+      .route-list
+      
+        .route
+          margin-bottom 1em
+
+        
+      
     .form-container
-      margin-top 2em
       padding 1.5em
         
       .action-name
@@ -144,10 +159,10 @@ export default {
   }),
   methods: {
     back(){
-      this.updateLeftNav({currentForm: null})
+      this.updateLeftNav({currentForm: null, currentAction: null})
     },
     addStationForm(){
-      this.updateLeftNav({currentForm: 'stationForm'})
+      this.updateLeftNav({currentForm: 'stationForm', currentAction: "New Station"})
     },
     addSignUpForm(){
       this.updateLeftNav({currentForm: 'signUpForm'})
@@ -156,8 +171,13 @@ export default {
       this.updateLeftNav({currentForm: 'signInForm'})
     },
     ...mapMutations({
-      'updateLeftNav': 'UPDATE_LEFT_NAV'
+      'updateLeftNav': 'UPDATE_LEFT_NAV',
+    }),
+    ...mapActions({
+       updateLeftNav: 'updateLeftNav',
+       toggleRightNav: 'toggleRightNav' 
     })
+
   }
 
 }
