@@ -1,40 +1,18 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import * as getters from './getters';
-import * as actions from './actions';
-import mutations from './mutations';
-import nav_items from './navItems'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-Vue.use(Vuex);
+import soundcloud from './soundcloud'
+import firebase from './firebase'
 
-const state = {
-  crumbs: [],
-  nav_items: nav_items,
-  stations: [],
-  emptyStation: {
-    name: "",
-    description: "",
-  },
-  currentStation: {},
-  filteredStation: [],
-  stationFilters: {
-    name: ""
-  },
-  leftNav: {
-    open: false,
-    currentForm: null,
-    currentAction: null
-  },
-  rightNav: {
-    open: false
-  }
-};
+Vue.use(Vuex)
+
+console.log(firebase)
 
 const store = new Vuex.Store({
-  state,
-  actions,
-  getters,
-  mutations,
-});
+  modules: {
+    firebase,
+    // soundcloud,
+  }
+})
 
-export default store;
+export default store

@@ -5,10 +5,12 @@ import * as types from './mutation-types'
 export const watchStations =  ({ commit }) => {
   api.watch("stations", snap => {
     let stations = snap.val()
-    stations = Object.keys(stations).reduce((_stations, _id)=>{
-      return _stations.concat([Object.assign({_id},stations[_id])])
-    },[])
-    commit(types.RECEIVE_STATIONS, {stations})
+    if(stations){
+      stations = Object.keys(stations).reduce((_stations, _id)=>{
+        return _stations.concat([Object.assign({_id},stations[_id])])
+      },[])
+      commit(types.RECEIVE_STATIONS, {stations})
+    }
   })
 }
 

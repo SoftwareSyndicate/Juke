@@ -6,7 +6,7 @@ div#mobile-nav
         span.line &nbsp
         span.line &nbsp
         span.line &nbsp
-    
+
   div.center
     h2.page-name(v-if="currentStation.name") {{currentStation.name}}
     h2.page-name(v-else) Stations
@@ -41,7 +41,7 @@ div#mobile-nav
       flex-basis 100%
       align-items center
       justify-content center
-      
+
       .menu-icon
         display flex
         flex-direction column
@@ -53,7 +53,7 @@ div#mobile-nav
           .line
             transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
             // background-color white
-                
+
         .line
           border-radius 1px
           height 2px
@@ -75,7 +75,7 @@ div#mobile-nav
       flex-basis 100%
       align-items center
       justify-content center
-      
+
       .filter-icon
         display flex
         flex-direction column
@@ -88,22 +88,22 @@ div#mobile-nav
           .line
             transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
             background-color white
-              
+
         .line
           border-radius 2px
           height 2px
           background-color #616b70
 
-          &:nth-child(1) 
+          &:nth-child(1)
             width 16px
 
-          &:nth-child(2) 
+          &:nth-child(2)
             width 12px
-    
-          &:nth-child(3) 
+
+          &:nth-child(3)
             width: 8px
-    
-         
+
+
 
 
 </style>
@@ -114,7 +114,7 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'mobile-nav',
-  computed: mapGetters ({
+  computed: mapGetters({
     nav_items: 'nav_items',
     leftNav: 'leftNav',
     rightNav: 'rightNav',
@@ -123,9 +123,8 @@ export default {
   methods: {
      ...mapActions({
        updateLeftNav: 'updateLeftNav',
-       toggleRightNav: 'toggleRightNav' 
+       toggleRightNav: 'toggleRightNav'
     })
   }
 }
 </script>
-

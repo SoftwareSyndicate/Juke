@@ -21,10 +21,11 @@ export default {
     stationList
   },
   name: 'stations-page',
-  computed: mapGetters ({
+  computed: mapGetters({
     filteredStations: 'filteredStations',
   }),
   mounted(){
+    console.log(this.$store)
     this.$store.dispatch('watchStations')
   }
 
