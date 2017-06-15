@@ -38,9 +38,6 @@ export const leftNav = state => state.leftNav;
 // Right Nav
 export const rightNav = state => state.rightNav;
 
-// Modal
-export const modal = state => state.modal;
-
 // Stations
 export const currentStation = (state, getters, rootState) => {
   if(rootState.route.params && rootState.route.params.id != 'new'){

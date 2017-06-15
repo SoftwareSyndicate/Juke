@@ -57,7 +57,3 @@ export const toggleRightNav = ({ commit, state }) => {
   commit(types.TOGGLE_RIGHT_NAV)
 }
 
-// Modal
-export const updateModal = ({ commit, state }, modal) => {
-  commit(types.UPDATE_MODAL, modal)
-}

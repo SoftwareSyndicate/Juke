@@ -1,5 +1,5 @@
 <template lang="pug">
-div#modal=#!]+)*
+div#modal
   transition(name="lift")
     div.container.row(v-if="modal.open")
       div.row.top-bar
