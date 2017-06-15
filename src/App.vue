@@ -1,5 +1,6 @@
 <template lang="pug">
 div#app
+  modal
   div.nav-container
     left-nav
     mobile-nav
@@ -45,13 +46,15 @@ import { mapGetters } from 'vuex'
 import mobileNav from './components/mobileNav'
 import leftNav from './components/leftNav'
 import rightNav from './components/rightNav'
+import modal from './components/modal'
 
 export default {
   name: 'app',
   components: {
     mobileNav,
     leftNav,
-    rightNav
+    rightNav,
+    modal
   },
   computed: mapGetters ({
     crumbs: 'crumbs',

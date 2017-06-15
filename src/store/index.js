@@ -27,6 +27,12 @@ const state = {
   },
   rightNav: {
     open: false
+  },
+  modal: {
+    open: true,
+    component: null,
+    header: null,
+    size: "lg"
   }
 };
 

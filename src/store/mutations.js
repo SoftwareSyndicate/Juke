@@ -20,4 +20,8 @@ export default {
   [types.TOGGLE_RIGHT_NAV] (state) {
     state.rightNav.open =  !state.rightNav.open
   },
+  [types.UPDATE_MODAL] (state, modal) {
+    state.modal =  Object.assign(state.modal, modal)
+  },
+
 }

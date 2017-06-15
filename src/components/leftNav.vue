@@ -13,20 +13,23 @@ div#left-nav
           span <-
 
       div.navigation.row-flex-wrap(v-if="!leftNav.currentForm")
-        div.route-list.row-flex-wrap
-          div.route.row-flex-wrap-100
-            div.row-flex-100
+        div.list.row-flex-wrap
+          div.item.row-flex-wrap-100
+            div.sub-item.row-flex-100
               p stations
-            div.row-flex-100
+            div.sub-item.first.row-flex-100
+              p new
+            div.sub-item.second.row-flex-100
               p new
 
 
-
-          div.route.row-flex-100
-            p users
-
-          div.route.row-flex-100
-            p analytics
+          div.item.row-flex-100
+            div.sub-item.row-flex-100
+              p users
+              
+          div.item.row-flex-100
+            div.sub-item.row-flex-100
+              p analytics
 
         // div.row-flex-100
         //   s-button.row-flex-100(title="ADD A STATION", :onclick="addStationForm")
@@ -120,12 +123,20 @@ div#left-nav
     .navigation
       padding 1em
 
-      .route-list
-      
-        .route
-          margin-bottom 1em
-
+      .list
         
+        .item
+          margin-bottom 1em
+          
+          .sub-item
+            font-size 1.5em
+
+          .first
+            margin-left 3em
+
+          .second
+            margin-left 6em
+            
       
     .form-container
       padding 1.5em

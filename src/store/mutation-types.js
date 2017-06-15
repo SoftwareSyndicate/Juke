@@ -18,4 +18,7 @@ export const UPDATE_LEFT_NAV = 'UPDATE_LEFT_NAV'
 // Right Nav
 export const TOGGLE_RIGHT_NAV = 'TOGGLE_RIGHT_NAV'
 
+// Modal
+export const UPDATE_MODAL = 'UPDATE_MODAL'
+
 
