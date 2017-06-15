@@ -1,3 +1,3 @@
-export {default as StationPage} from './StationPage.vue'
-export {default as StationsPage} from './StationsPage.vue'
-
+export {default as StationPage} from './StationPage'
+export {default as NewStationPage} from './NewStationPage'
+export {default as StationsPage} from './StationsPage'

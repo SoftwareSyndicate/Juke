@@ -12,24 +12,18 @@ div#left-nav
         div.back-button-container(@click="back()")
           span <-
 
-      div.navigation.row-flex-wrap(v-if="!leftNav.currentForm")
-        div.list.row-flex-wrap
-          div.item.row-flex-wrap-100
-            div.sub-item.row-flex-100
-              p stations
-            div.sub-item.first.row-flex-100
-              p new
-            div.sub-item.second.row-flex-100
-              p new
+      div.navigation(v-if="!leftNav.currentForm")
+        div.route-list
+          div.route.row-flex-wrap-100
+            div.row-flex-100
+              router-link(:to="{name: 'stations'}") stations
+            div.row-flex-100
+              router-link(:to="{name: 'new-station'}") new
+          div.route.row-flex-100
+            p users
 
-
-          div.item.row-flex-100
-            div.sub-item.row-flex-100
-              p users
-              
-          div.item.row-flex-100
-            div.sub-item.row-flex-100
-              p analytics
+          div.route.row-flex-100
+            p analytics
 
         // div.row-flex-100
         //   s-button.row-flex-100(title="ADD A STATION", :onclick="addStationForm")

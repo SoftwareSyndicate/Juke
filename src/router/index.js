@@ -18,9 +18,14 @@ export default new Router({
       component: Pages.StationsPage
     },
     {
+      path: '/stations/new',
+      name: 'new-station',
+      component: Pages.NewStationPage
+    },
+    {
       path: '/stations/:id',
       name: 'station',
       component: Pages.StationPage
-    }
+    },
   ]
 })
