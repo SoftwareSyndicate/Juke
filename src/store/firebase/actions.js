@@ -1,10 +1,10 @@
-import api from './api'
+import * as api from './api'
 import * as types from './mutation-types'
-
 
 export const watchStations =  ({ commit }) => {
   api.watch("stations", snap => {
     let stations = snap.val()
+    console.log(stations)
     if(stations){
       stations = Object.keys(stations).reduce((_stations, _id)=>{
         return _stations.concat([Object.assign({_id},stations[_id])])
@@ -45,15 +45,3 @@ export const uploadFile = ({ commit }, {file}) => {
     return error
   })
 }
-
-// Left Nav
-export const updateLeftNav = ({ commit, state }, leftNav) => {
-  commit(types.UPDATE_LEFT_NAV, leftNav)
-}
-
-
-// Right Nav
-export const toggleRightNav = ({ commit, state }) => {
-  commit(types.TOGGLE_RIGHT_NAV)
-}
-
