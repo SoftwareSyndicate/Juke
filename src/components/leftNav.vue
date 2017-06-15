@@ -46,8 +46,8 @@ div#left-nav
           div.sign-up-from-container.row-flex-wrap-100(v-if="leftNav.currentForm === 'signUpForm'")
             sign-up-form
 
-          
-  
+
+
 </template>
 
 <style lang="stylus">
@@ -58,12 +58,12 @@ div#left-nav
   .transform-enter-active
     transition all .3s cubic-bezier(0, 1.0, 1.0, 1.0)
 
-  .transform-leave-active 
+  .transform-leave-active
     transition all .3s cubic-bezier(0, 1.0, 1.0, 1.0)
-  
+
   .transform-enter, .transform-leave-to
     transform translateX(-100vw)
-  
+
   .container
     // background-color rgba(25, 129,  236, .95)
     background-color rgba(255, 255,  255, .95)
@@ -81,8 +81,8 @@ div#left-nav
       width 25px
       height 25px
       overflow hidden
-      
-      &::before, &::after 
+
+      &::before, &::after
         content ''
         position absolute
         height 1px
@@ -91,13 +91,13 @@ div#left-nav
         left 0
         margin-top -1px
         background #616b70
-       
-      &::before 
+
+      &::before
         transform rotate(45deg)
-       
+
       &::after
         transform rotate(-45deg)
-       
+
     .close-icon-container
       display flex
       justify-content center
@@ -119,7 +119,7 @@ div#left-nav
       right 0
       height 60px
       width 60px
-    
+
     .navigation
       padding 1em
 
@@ -150,7 +150,7 @@ div#left-nav
 </style>
 
 <script>
-import { mapMutations } from 'vuex'  
+import { mapMutations } from 'vuex'
 import { mapGetters } from 'vuex'
 import { mapActions } from 'vuex'
 
@@ -186,11 +186,10 @@ export default {
     }),
     ...mapActions({
        updateLeftNav: 'updateLeftNav',
-       toggleRightNav: 'toggleRightNav' 
+       toggleRightNav: 'toggleRightNav'
     })
 
   }
 
 }
 </script>
-

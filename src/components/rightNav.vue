@@ -4,8 +4,8 @@ div#right-nav
     div.container(v-if="rightNav.open")
       div.filters.row-flex-wrap
         s-input(:classes="['xs']", :model="name", :placeHolder="'Name'",  :change="onNameChange")
-      
-  
+
+
 </template>
 
 <style lang="stylus">
@@ -17,17 +17,17 @@ div#right-nav
   .transform-enter-active
     transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
 
-  .transform-leave-active 
+  .transform-leave-active
     transition all .2s cubic-bezier(1.0, 1.0, 1.0, 1.0)
-  
+
   .transform-enter, .transform-leave-to
     transform translateX(75vw) translateY(-100vh)
-  
+
   .container
     background-color rgba(0, 0, 0, .8)
     width 75vw
     height 100vh
-    
+
     .filters
       padding 1em
       padding-top 4em
@@ -45,7 +45,7 @@ export default {
       name: ""
     }
   },
-  computed: mapGetters ({
+  computed: mapGetters({
     rightNav: 'rightNav',
     boxFilters: 'boxFilters'
   }),
@@ -59,4 +59,3 @@ export default {
   }
 }
 </script>
-

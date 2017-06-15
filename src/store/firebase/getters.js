@@ -42,10 +42,10 @@ export const rightNav = state => state.rightNav;
 export const modal = state => state.modal;
 
 // Stations
-export const currentStation = state => {
-  if(state.route.params && state.route.params.id != 'new'){
+export const currentStation = (state, getters, rootState) => {
+  if(rootState.route.params && rootState.route.params.id != 'new'){
     let station = state.stations.find((station)=>{
-      return station.id === state.route.params.id
+      return station.id === rootState.route.params.id
     })
 
     if(station){
@@ -65,8 +65,7 @@ export const filteredStations = state => {
   return state.stations.filter(function (station) {
     return station.name.toLowerCase().indexOf(state.stationFilters.name.toLowerCase()) !== -1
   })
-  
+
   // TODO actually filter
   //return state.boxes;
 }
-
