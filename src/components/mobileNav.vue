@@ -13,7 +13,7 @@ div#mobile-nav
     h2.page-name(v-else) Stations
 
   div.right
-    div.filter-icon-container(@click="toggleRightNav()")
+    div.filter-icon-container(@click="updateRightNav({'open': !rightNav.open})")
       div.filter-icon(:class="{'open': rightNav.open}")
         span.line &nbsp
         span.line &nbsp
@@ -123,7 +123,7 @@ export default {
   methods: {
      ...mapActions({
        updateLeftNav: 'updateLeftNav',
-       toggleRightNav: 'toggleRightNav'
+       updateRightNav: 'updateRightNav'
     })
   }
 }

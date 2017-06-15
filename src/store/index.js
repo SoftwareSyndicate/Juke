@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 import soundcloud from './soundcloud'
 import firebase from './firebase'
-import ui from './ui'
 
 import components from './components'
 
@@ -13,9 +12,10 @@ console.log(firebase)
 
 const store = new Vuex.Store({
   modules: {
-    ui,
     firebase,
-    modal: components.modal
+    modal: components.modal,
+    leftNav: components.leftNav,
+    rightNav: components.rightNav
     // soundcloud,
   }
 })

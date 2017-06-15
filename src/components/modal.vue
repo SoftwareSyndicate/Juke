@@ -18,7 +18,7 @@ div#modal
 <style lang="stylus">
 #modal
   position absolute
-  z-index 10
+  z-index 0
   width 100vw
   height 100vh
   
