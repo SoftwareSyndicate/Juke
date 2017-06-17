@@ -1,7 +1,7 @@
 // State
 const state = {
   modal: {
-    open: true,
+    open: false,
     header: "",
     component: null
   }

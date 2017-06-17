@@ -59,10 +59,15 @@ div#left-nav
     transform translateX(-100vw)
 
   .container
-    // background-color rgba(25, 129,  236, .95)
-    background-color rgba(255, 255,  255, .95)
-    width 100vw
+    background-image url("../assets/noise.png"), -webkit-radial-gradient(top center, #f7931e, #f15a24 35vh)
+    width 80vw
     height 100vh
+    color white
+    box-shadow 1px 0px 2px 1px rgba(0, 0, 0, 0.18)
+    border-right 1px solid rgba(0, 0, 0, 0.1)
+
+    a
+      color white
 
     .top-bar
       height 60px
@@ -79,12 +84,13 @@ div#left-nav
       &::before, &::after
         content ''
         position absolute
-        height 1px
+        height 2px
+        border-radius 2px
         width 100%
         top 50%
         left 0
         margin-top -1px
-        background #616b70
+        background white
 
       &::before
         transform rotate(45deg)

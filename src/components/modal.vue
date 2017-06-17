@@ -1,13 +1,13 @@
 <template lang="pug">
-div#modal
+div#modal(v-if="modal.open")
   transition(name="lift")
-    div.container.row(v-if="modal.open")
+    div.container.row
       div.row.top-bar
-        div.close-icon-container(@click="updateModal({'open': false})")
-          span.close.hairline
-
         div.header
           h2 {{modal.header}}
+
+        div.close-icon-container(@click="updateModal({'open': false})")
+          span.close.hairline
 
 
       div.component-container
@@ -18,9 +18,10 @@ div#modal
 <style lang="stylus">
 #modal
   position absolute
-  z-index 0
+  z-index 10
   width 100vw
   height 100vh
+  display flex
   
   .lift-enter-active, .lift-leave-active
     transiton all .4s ease
@@ -32,8 +33,8 @@ div#modal
     
   
   .container
-    padding 1em
-    background-color rgba(255, 255,  255, .95)
+    margin 1em
+    background-color rgba(255, 255,  25, .95)
       
 
     .top-bar
@@ -41,30 +42,9 @@ div#modal
       display flex
       align-items center
 
-    .close
-      position relative
-      display inline-block
-      width 25px
-      height 25px
-      overflow hidden
-      
-      &::before, &::after 
-        content ''
-        position absolute
-        height 1px
-        width 100%
-        top 50%
-        left 0
-        margin-top -1px
-        background #616b70
-       
-      &::before 
-        transform rotate(45deg)
-       
-      &::after
-        transform rotate(-45deg)
        
     .close-icon-container
+      margin-left auto
       display flex
       justify-content center
       align-items center
@@ -72,6 +52,30 @@ div#modal
       right 0
       height 60px
       width 60px
+
+      .close
+        position relative
+        display inline-block
+        width 25px
+        height 25px
+        overflow hidden
+
+        &::before, &::after 
+          content ''
+          position absolute
+          height 1px
+          width 100%
+          top 50%
+          left 0
+          margin-top -1px
+          background #616b70
+
+        &::before 
+          transform rotate(45deg)
+
+        &::after
+          transform rotate(-45deg)
+
 
     .current-action-container
       margin-left auto
