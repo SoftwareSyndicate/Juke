@@ -11,14 +11,12 @@ const config = {
 
 Firebase.initializeApp(config)
 
-const ref = Firebase.database().ref()
-const storage = Firebase.storage().ref()
-
-console.log('ref', ref)
+export const REF = Firebase.database().ref()
+export const STORAGE = Firebase.storage().ref()
 
 export function addItem(type, data){
   return new Promise((resolve, reject) => {
-    let key = ref.child(type).push().key
+    let key = REF.child(type).push().key
 
     let now = new Date()
     data.created_at = now
@@ -27,12 +25,20 @@ export function addItem(type, data){
 
     var updates = {}
     updates[`${type}/${key}`] = data
-    ref.update(updates).then(results => {
+    REF.update(updates).then(results => {
       resolve(data)
     }, error => {
       reject(error)
     })
   })
+}
+
+export function push(path){
+  return REF.child(path).push()
+}
+
+export function set(ref, data){
+  return ref.set(data)
 }
 
 export function updateItem(key, type, data){
@@ -42,7 +48,7 @@ export function updateItem(key, type, data){
 
   var updates = {}
   updates[`${type}/${key}`] = data
-  return ref.update(updates)
+  return REF.update(updates)
 }
 
 export function updatePath(path, data){
@@ -52,12 +58,12 @@ export function updatePath(path, data){
 }
 
 export function update(updates){
-  return ref.update(updates)
+  return REF.update(updates)
 }
 
 export function watch(type, handler) {
   let first = true
-  let child = ref.child(type)
+  let child = REF.child(type)
   let cb = child.on('value', handler)
   return () => {
     child.off('value', cb)
@@ -65,7 +71,7 @@ export function watch(type, handler) {
 }
 
 export function uploadFile(file){
-  return storage.child('images/' + file.name).put(file).then(results => {
+  return STORAGE.child('images/' + file.name).put(file).then(results => {
     return results
   }, error => {
     return error

@@ -1,21 +1,21 @@
 <template lang="pug">
-div.box-list-item
+div.station-list-item
   div.left
     div.currently-playing-image-container
-      img(:src="box.currently_playing.image")
+      img(v-if="station.currently_playing", :src="station.currently_playing.image")
 
   div.right
     div.row-flex-wrap
       div.row-flex
-        p.name {{box.name}}
-      div.row-flex(v-if="box.currently_playing")
-        p.currently-playing {{box.currently_playing.name}} - {{box.currently_playing.artist}}
+        p.name {{station.name}}
+      div.row-flex(v-if="station.currently_playing")
+        p.currently-playing {{station.currently_playing.name}} - {{station.currently_playing.artist}}
 </template>
 
 <style lang="stylus">
 
 
-.box-list-item
+.station-list-item
   display flex
   flex-basis 100%
   padding .5em
@@ -49,9 +49,9 @@ div.box-list-item
 
 <script>
 export default {
-  name: 'box-list-item',
+  name: 'station-list-item',
   props: {
-    box: {
+    station: {
       type: Object,
       default: () => {
 

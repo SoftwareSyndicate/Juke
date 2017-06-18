@@ -25,7 +25,6 @@ export default {
     filteredStations: 'filteredStations',
   }),
   mounted(){
-    console.log(this.$store)
     this.$store.dispatch('watchStations')
   }
 

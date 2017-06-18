@@ -21,7 +21,6 @@ export const stationFilters = state => state.stationilters
 
 export const filteredStations = state => {
   return state.stations.filter(function (station) {
-    console.log(station)
     return station.name.toLowerCase().indexOf(state.stationFilters.name.toLowerCase()) !== -1
   })
 
